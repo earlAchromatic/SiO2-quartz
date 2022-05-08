@@ -1,0 +1,16 @@
+<template>
+  <div class="flow">
+    <slot />
+  </div>
+</template>
+
+<style>
+/*
+FLOW UTILITY
+Like the Every Layout stack: https://every-layout.dev/layouts/stack/
+Info about this implementation: https://piccalil.li/quick-tip/flow-utility/
+*/
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+</style>

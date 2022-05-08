@@ -1,0 +1,45 @@
+@import 'global/reset.css';
+@import 'global/fonts.css';
+
+@import 'global/variables.css';
+@import 'global/global.css';
+
+@import 'utilities/flow.css';
+
+@import './markdown.css';
+
+@layer base;
+@layer components;
+@layer theme;
+
+:root {
+@apply UnoRoot;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html.dark {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: rgb(13,148,136);
+  opacity: 0.75;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
