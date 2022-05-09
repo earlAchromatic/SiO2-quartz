@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext" ,
+    "esModuleInterop": true,
+    "composite": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "tsBuildInfoFile": "./tsbuildcache",
+    "declarationDir": "./dist/types"
+  }
+}

@@ -5,13 +5,18 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Cluster: typeof import('./components/composition/Cluster.vue')['default']
+    ColorEditor: typeof import('./components/TokenDashboard/ColorEditor.vue')['default']
     Counter: typeof import('./components/blocks/Counter.vue')['default']
-    Flow: typeof import('./components/composition/Flow.vue')['default']
+    FontEditor: typeof import('./components/TokenDashboard/FontEditor.vue')['default']
     Footer: typeof import('./components/blocks/Footer.vue')['default']
     Hero: typeof import('./components/composition/Hero.vue')['default']
     README: typeof import('./components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SpaceEditor: typeof import('./components/TokenDashboard/SpaceEditor.vue')['default']
+    TokenEditor: typeof import('./components/TokenDashboard/TokenEditor.vue')['default']
+    ViewportEditor: typeof import('./components/TokenDashboard/ViewportEditor.vue')['default']
   }
 }
 

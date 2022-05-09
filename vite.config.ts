@@ -17,6 +17,16 @@ import Unocss from 'unocss/vite'
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
 export default defineConfig({
+  server: {
+    proxy: {
+      // with options
+      '/api': {
+        target: 'http://localhost:4003',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''),
+      },
+    },
+  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
@@ -124,9 +134,11 @@ export default defineConfig({
 
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
-    script: 'async',
+    script: 'async defer',
     formatting: 'minify',
-    onFinished() { generateSitemap() },
+    onFinished() {
+      generateSitemap()
+    },
   },
 
   // https://github.com/vitest-dev/vitest

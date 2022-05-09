@@ -12,24 +12,26 @@ const toggleLocales = () => {
 
 <template>
   <nav text-xl mt-6>
-    <RouterLink class="" to="/" :title="t('button.home')">
-      <div class="i-carbon-campsite" />
-    </RouterLink>
+    <Cluster :space="'--space-s'">
+      <RouterLink class="" to="/" :title="t('button.home')">
+        <div class="i-carbon-campsite" />
+      </RouterLink>
 
-    <button class="" :title="t('button.toggle_dark')" @click="toggleDark()">
-      <div i="carbon-sun dark:carbon-moon" /> Toggle Dark
-    </button>
+      <button class="" :title="t('button.toggle_dark')" @click="toggleDark()">
+        <div class="i-carbon-sun dark:i-carbon-moon" />
+      </button>
 
-    <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales">
-      <div i-carbon-language />
-    </a>
+      <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales">
+        <div i-carbon-language />
+      </a>
 
-    <RouterLink class="icon-btn mx-2" to="/about" :title="t('button.about')">
-      <div i-carbon-dicom-overlay />
-    </RouterLink>
+      <RouterLink class="icon-btn mx-2" to="/about" :title="t('button.about')">
+        <div i-carbon-dicom-overlay />
+      </RouterLink>
 
-    <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank" title="GitHub">
-      <div i-carbon-logo-github />
-    </a>
+      <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank" title="GitHub">
+        <div i-carbon-logo-github />
+      </a>
+    </Cluster>
   </nav>
 </template>
