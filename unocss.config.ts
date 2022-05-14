@@ -1,19 +1,24 @@
 import {
   defineConfig,
   presetIcons,
+  presetUno,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
 
-import tokens from './src/styles/design-tokens.json'
-
 import clamp from './src/styles/css-utils/clamp-generator'
 import parse from './src/styles/css-utils/token-parser'
+
+import tokens from './src/styles/design-tokens.json'
 
 const colors = parse(tokens.colors.items)
 const fontFamily = parse(tokens.fonts.items)
 const spacing = parse(clamp(tokens.spacing.items))
 const fontSize = parse(clamp(tokens.fontSizes.items))
+
+console.log(spacing)
+console.log('------***------')
+console.log(tokens.viewports)
 
 export default defineConfig({
   theme: {
@@ -29,6 +34,7 @@ export default defineConfig({
       scale: 1.2,
       warn: true,
     }),
+    presetUno(),
   ],
   rules: [
     [/^SiO2-(.*)$/, ([, c], { theme }) => {
@@ -59,7 +65,8 @@ export default defineConfig({
           result += `--${prefix}-${key}: ${group[key]};`
         })
       })
-
+      console.log('peeling the onion')
+      console.log(result)
       return result
     }],
   ],
@@ -80,3 +87,4 @@ export default defineConfig({
     transformerVariantGroup(),
   ],
 })
+

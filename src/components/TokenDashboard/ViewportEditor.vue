@@ -6,8 +6,8 @@ const emits = defineEmits([
   'sendViewportData',
 ])
 
-const handleUpdate = (evt) => {
-  emits('sendViewportData', evt)
+const handleUpdate = (evt, from) => {
+  emits('sendViewportData', { from, evt })
 }
 </script>
 
@@ -15,9 +15,9 @@ const handleUpdate = (evt) => {
   <div>
     <fieldset>
       <label for="">Viewport Min</label>
-      <input v-model="viewportMin" type="text" placeholder="360" @change="handleUpdate(viewportMin)">
+      <input v-model="viewportMin" type="text" placeholder="360" @change="handleUpdate(viewportMin, 'min')">
       <label for="">Viewport Max</label>
-      <input v-model="viewportMax" type="text" placeholder="1120" @change="handleUpdate(viewportMax)">
+      <input v-model="viewportMax" type="text" placeholder="1120" @change="handleUpdate(viewportMax, 'max')">
     </fieldset>
   </div>
 </template>

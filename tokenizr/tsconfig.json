@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext" ,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "composite": true,
     "rootDir": "./src",

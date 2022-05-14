@@ -1,4 +1,21 @@
 <script setup lang="ts">
+
+const viewportData = ref({
+  min: undefined,
+  max: undefined,
+})
+
+const handleNewData = (data) => {
+  console.log('got new dat')
+  console.log(data)
+  if (data.from === 'min')
+    viewportData.value.min = data.evt
+  else if (data.from === 'max')
+    viewportData.value.max = data.evt
+}
+
+const hidden = ref(false)
+
 const handleEvent = async (evt) => {
   const resource = '/api/write-token'
   await fetch(resource, {
@@ -6,18 +23,12 @@ const handleEvent = async (evt) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ Title: 'Jacob' }),
+    body: JSON.stringify(viewportData.value),
   })
     .then(res => console.log(res))
     .catch(e => console.error(e))
 }
 
-const handleNewData = (evt) => {
-  console.log('got new dat')
-  console.log(evt)
-}
-
-const hidden = ref(false)
 </script>
 
 <template>
